@@ -49,6 +49,16 @@ const ctaImg = document.querySelector('img#cta-img');
 const ctaH1 = document.querySelector(".cta-text h1");
 const ctaButton = document.querySelector(".cta-text button");
 
+const mainContentH4 = document.querySelectorAll('h4');
+const mainContentP = document.querySelectorAll('.text-content p');
+const middleImg = document.querySelector('img#middle-img');
+
+const contactH4 = document.querySelector('.contact h4');
+const contactContent = document.querySelectorAll('.contact p');
+
+// Example: Update the img src for the logo
+let logo = document.querySelector("img#logo-img");
+logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 // Update nav links
 for(let i = 0; i < navLinks.length; i ++) {
@@ -63,6 +73,12 @@ ctaButton.innerHTML = siteContent["cta"]["button"];
 // Update main content
 const contentList = ['features', 'about', 'services', 'product', 'vision'];
 
-// Example: Update the img src for the logo
-let logo = document.querySelector("img#logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+function updateMainContent(contentList) {
+  for(let i = 0; i < contentList.length; i ++) {
+    mainContentH4[i].innerHTML = siteContent["main-content"][`${contentList[i]}-h4`];
+    mainContentP[i].innerHTML = siteContent["main-content"][`${contentList[i]}-content`];
+  }
+  middleImg.setAttribute('src', siteContent["main-content"]["middle-img-src"]);
+}
+
+updateMainContent(contentList);
