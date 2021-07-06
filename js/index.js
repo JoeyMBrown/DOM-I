@@ -37,16 +37,31 @@ const siteContent = {
   },
 };
 
+/* All DOM variables*/ 
+
 // returns first element (querySelector)
-const header = document.querySelector('header');
+//const header = document.querySelector('header');
 
 // returns all a tags within nav element
-const navLinks = document.querySelectorAll('nav a')
+const navLinks = document.querySelectorAll('nav a');
+
+const ctaImg = document.querySelector('img#cta-img');
+const ctaH1 = document.querySelector(".cta-text h1");
+const ctaButton = document.querySelector(".cta-text button");
+
 
 // Update nav links
 for(let i = 0; i < navLinks.length; i ++) {
-    navLinks[i].innerHTML = siteContent["nav"][`nav-item-${i+1}`]
+    navLinks[i].innerHTML = siteContent["nav"][`nav-item-${i+1}`];
 }
+
+// Update cta
+ctaImg.setAttribute('src', siteContent["cta"]["img-src"]);
+ctaH1.innerHTML = siteContent["cta"]["h1"];
+ctaButton.innerHTML = siteContent["cta"]["button"];
+
+// Update main content
+const contentList = ['features', 'about', 'services', 'product', 'vision'];
 
 // Example: Update the img src for the logo
 let logo = document.querySelector("img#logo-img");
