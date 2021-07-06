@@ -56,6 +56,8 @@ const middleImg = document.querySelector('img#middle-img');
 const contactH4 = document.querySelector('.contact h4');
 const contactContent = document.querySelectorAll('.contact p');
 
+const footerP = document.querySelector('footer p');
+
 // Example: Update the img src for the logo
 let logo = document.querySelector("img#logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
@@ -82,3 +84,13 @@ function updateMainContent(contentList) {
 }
 
 updateMainContent(contentList);
+
+contactH4.innerHTML = siteContent['contact']['contact-h4'];
+
+const contactContentTitles = ['address', 'phone', 'email'];
+
+for(let i = 0; i < contactContent.length; i++) {
+  contactContent[i].innerHTML = siteContent['contact'][`${contactContentTitles[i]}`];
+}
+
+footerP.innerHTML = siteContent['footer']['copyright'];
