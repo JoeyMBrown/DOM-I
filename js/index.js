@@ -37,6 +37,17 @@ const siteContent = {
   },
 };
 
+// returns first element (querySelector)
+const header = document.querySelector('header');
+
+// returns all a tags within nav element
+const navLinks = document.querySelectorAll('nav a')
+
+// Update nav links
+for(let i = 0; i < navLinks.length; i ++) {
+    navLinks[i].innerHTML = siteContent["nav"][`nav-item-${i+1}`]
+}
+
 // Example: Update the img src for the logo
-let logo = document.getElementById("logo-img");
+let logo = document.querySelector("img#logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
